@@ -1,7 +1,10 @@
-# Store yayını: sadece şirket reposunda ve "prod" dalına push edildiğinde çalışır.
+# Store yayını: sadece şirket reposunda ve "prod" dalına push edildiğinde ya da elle başlatıldığında çalışır.
 # Fork'larda STORE_RELEASE değişkeni ve secret'lar olmadığı için iş hiç başlamaz.
-# Mağaza kimlik bilgileri (App Store Connect API anahtarı, Google Play servis hesabı) repoda değil,
+# Mağaza kimlik bilgileri (imza anahtarları, Google Play servis hesabı) repoda değil,
 # EAS üzerinde şirket hesabında saklanır. Repoda sadece EXPO_TOKEN secret'ı bulunur.
+#
+# Hangi platformların yayınlanacağı STORE_PLATFORMS değişkeninden gelir (android, ios ya da all).
+# iOS mağaza hesabı hazır olana kadar değer "android" kalır.
 name: Store yayını
 
 on:
@@ -10,10 +13,14 @@ on:
   workflow_dispatch:
     inputs:
       platform:
-        description: Platform
+        description: Platform (boş bırakılırsa STORE_PLATFORMS değişkeni kullanılır)
         type: choice
-        options: [all, android, ios]
-        default: all
+        options: ['', android, ios, all]
+        default: ''
+      submit:
+        description: Build bitince mağazaya gönder (ilk yüklemede kapalı olmalı)
+        type: boolean
+        default: true
 
 permissions:
   contents: read
@@ -27,7 +34,7 @@ jobs:
     if: vars.STORE_RELEASE == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    # "production" ortamında onaylayıcı tanımlanırsa yayın onaydan sonra başlar.
+    # "production" ortamında onaylayıcı tanımlı, yayın onaydan sonra başlar.
     environment: production
     steps:
       - uses: actions/checkout@v7
@@ -47,8 +54,12 @@ jobs:
           eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
 
-      # Build EAS sunucularında alınır ve bitince mağazalara otomatik gönderilir.
-      - name: Build ve mağazalara gönderim
+      # Build EAS sunucularında alınır. Gönderim açıksa bitince mağazaya otomatik yüklenir.
+      - name: Build ve mağazaya gönderim
         env:
-          PLATFORM: ${{ inputs.platform || 'all' }}
-        run: eas build --platform "$PLATFORM" --profile production --non-interactive --no-wait --auto-submit
+          PLATFORM: ${{ inputs.platform || vars.STORE_PLATFORMS || 'android' }}
+          SUBMIT: ${{ github.event_name == 'push' || inputs.submit }}
+        run: |
+          args=(--platform "$PLATFORM" --profile production --non-interactive --no-wait)
+          if [ "$SUBMIT" = "true" ]; then args+=(--auto-submit); fi
+          eas build "${args[@]}"

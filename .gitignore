@@ -52,3 +52,4 @@ google-service-account*.json
 
 # yerel editör ve araç ayarları
 .claude/
+__pycache__/

@@ -7,6 +7,9 @@ updates:
       interval: weekly
     open-pull-requests-limit: 5
     ignore:
+      # Büyük sürüm atlamaları (TypeScript 7, ESLint 10 gibi) Expo ile uyumsuz olabiliyor, SDK güncellemesiyle birlikte elle yapılır.
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
       - dependency-name: "expo*"
       - dependency-name: "@expo/*"
       - dependency-name: "react"

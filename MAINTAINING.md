@@ -8,7 +8,7 @@ Kod herkese açık ama `main` dalına sadece bakımcılar kod alabilir. Dışar�
 
 1. Kişi repoyu kendi hesabına kopyalar (fork), değişikliğini orada yapar.
 2. Bize bir pull request (PR) gönderir: "şu değişikliği sizin projenize almak istiyorum".
-3. Otomatik kontroller çalışır, AI incelemesi yorum bırakır, bakımcı inceler.
+3. Otomatik kontroller çalışır, bakımcı inceler.
 4. Bakımcı ya birleştirir (merge), ya düzeltme ister, ya da gerekçesini yazıp kapatır.
 
 Yani kimse bizim onayımız olmadan projeye kod sokamaz. Fork'lar, bizim haberimiz olmadan başkalarının kodu kopyalayıp geliştirmesidir ve tamamen normaldir. GPL gereği onlar da kodlarını açık tutmak zorunda.
@@ -20,17 +20,24 @@ Katkıcılar genelde issue'lardan gelir. Bir kişi hata bildirir ya da öneri ya
 - **Yeni issue'lar:** etiket ver (`hata`, `öneri`, `veri kaynağı`), yanlış ya da tekrar edenleri kapat. Belirsizse soru sor. İlk yanıtı birkaç gün içinde vermek önemli, cevapsız kalan issue katkıcıyı kaçırır.
 - **Açık PR'lar:** aşağıdaki inceleme listesine göre bak. Uzun süre bekletme, en azından "bakacağım" yaz.
 - **Dependabot PR'ları:** CI yeşilse ve değişiklik küçükse birleştir.
-- **Katkıcılar botu PR'ları:** doğrudan birleştir.
+- **Katkıcılar botu PR'ları:** sadece `README.md` ve `.all-contributorsrc` dosyalarını değiştirdiğini kontrol et ve birleştir. GitHub, Actions'ın açtığı PR'larda kontrolleri çalıştırmadığı için zorunlu kontroller beklemede kalır. Birleştirirken "Merge without waiting for requirements to be met" seçeneğini işaretlemen gerekir.
 
 Her şeye hemen yanıt vermek zorunda değilsin. README'de ya da issue'larda "haftada bir bakıyoruz" demek yeterli. Bakımcı yorgunluğu açık kaynağın en sık ölüm sebebi, süreyi baştan sınırlamak doğru.
 
 ## PR inceleme listesi
 
+PR'ı kendi bilgisayarında açıp denemek için:
+
+```bash
+gh pr checkout <numara>
+npm ci
+npx expo start
+```
+
 Birleştirmeden önce:
 
 - [ ] CI yeşil (typecheck, lint, paketleme, lisans kontrolü)
 - [ ] CLA kabul edilmiş (`cla` kontrolü yeşil)
-- [ ] AI incelemesinin bulguları okunmuş. AI bir öneri sunar, son karar senin. Yanılabilir, bazen gereksiz şeylere takılır, bazen gerçek bir hatayı kaçırır.
 - [ ] Değişiklik projenin amacına uygun ve kapsamı makul. Tek PR'da birden fazla konu varsa bölünmesini iste.
 - [ ] Değişiklik telefonda ya da emülatörde denendi (arayüz değiştiyse ekran görüntüsü var)
 - [ ] Yeni bağımlılık varsa gerçekten gerekli
@@ -68,7 +75,6 @@ Kötü kod değil, yanlış yöne giden emek kırıcıdır. Büyük değişiklik
 | `hata`, `öneri`, `veri kaynağı` | Issue türü |
 | `arayüz`, `kullanıcı verisi`, `belge`, `bağımlılık` | PR'ın dokunduğu alan (otomatik) |
 | `hassas` | Build, yayın ya da marka dosyalarına dokunuyor, satır satır incele (otomatik) |
-| `ai: birleştirilebilir`, `ai: değişiklik gerekli`, `ai: kapsam dışı` | AI incelemesinin önerisi |
 | `tasarım` | Görsel ya da tasarım katkısı, katkıcılar listesinde 🎨 olarak görünür |
 
 ## Sürümler ve yayın
@@ -121,7 +127,7 @@ Aşağıdakilerin bir kısmı repo oluşturulurken yapıldı, işaretli olmayanl
 - [x] `main` dal koruması: PR zorunlu, 1 onay, CODEOWNERS onayı, zorunlu CI ve CLA kontrolleri, force push kapalı
 - [x] Actions: ilk kez katkı verenlerin workflow'ları onay bekler, varsayılan token izni sadece okuma
 - [x] Private vulnerability reporting, Dependabot uyarıları, secret scanning açık
-- [ ] `ANTHROPIC_API_KEY` secret'ını ekle (Settings > Secrets and variables > Actions). AI incelemesi için. Anahtar yoksa AI inceleme işi hata verir, diğer kontroller etkilenmez.
+- [x] Actions'ın PR açabilmesi için organizasyon ve repo ayarlarında "Allow GitHub Actions to create and approve pull requests" açık (katkıcılar listesi PR'ı için)
 - [ ] Settings > Environments > `production` ortamına onaylayıcı olarak kendini ekle, `EXPO_TOKEN` secret'ını bu ortama tanımla
 - [ ] Settings > Variables: `STORE_RELEASE` = `true` (EAS hazır olduğunda)
 - [ ] Organizasyon düzeyindeki secret'ların bu repoya açık olmadığını kontrol et (Organization settings > Secrets > her secret için "Repository access")

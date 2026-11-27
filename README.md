@@ -78,7 +78,7 @@ Katkılara açığız. Nasıl başlayacağın [CONTRIBUTING.md](CONTRIBUTING.md)
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/codebycinar"><img src="https://avatars.githubusercontent.com/u/53220399?v=4?s=80" width="80px;" alt="Hüseyin Çınar"/><br /><sub><b>Hüseyin Çınar</b></sub></a><br /><a href="https://github.com/ModernYazilim/acik-durak/commits?author=codebycinar" title="Code">💻</a> <a href="#maintenance-codebycinar" title="Maintenance">🚧</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/codebycinar"><img src="https://avatars.githubusercontent.com/u/53220399?v=4&size=80" width="80px" height="80px" alt="Hüseyin Çınar"/><br /><sub><b>Hüseyin Çınar</b></sub></a><br /><a href="https://github.com/ModernYazilim/acik-durak/commits?author=codebycinar" title="Code">💻</a> <a href="#maintenance-codebycinar" title="Maintenance">🚧</a> <a href="https://github.com/ModernYazilim/acik-durak/commits?author=codebycinar" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>
@@ -95,5 +95,7 @@ Copyright (C) 2026 Modern Yazılım ve Bilişim Teknolojileri San. Tic. Ltd. Şt
 Kaynak kod [GNU General Public License v3.0](LICENSE) ile lisanslıdır. Kodu kullanabilir, değiştirebilir ve dağıtabilirsin. Dağıttığın her sürümün kaynak kodunu da aynı lisansla açman gerekir.
 
 "Açık Durak" adı, uygulama simgesi ve logoları lisansın kapsamında değildir. Kendi sürümünü yayınlayacaksan [TRADEMARKS.md](TRADEMARKS.md) dosyasına bak. App Store ve Google Play'deki resmi uygulama sadece Modern Yazılım tarafından yayınlanır.
+
+[Gizlilik politikası](PRIVACY.md)
 
 Harita verisi © [OpenStreetMap](https://www.openstreetmap.org/copyright) katkıcıları (ODbL).

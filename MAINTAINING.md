@@ -151,5 +151,5 @@ npx eas-cli credentials     # Android keystore ve iOS sertifikaları EAS'ta olu�
 - [ ] CLA metnini bir avukata okut
 - [ ] "Açık Durak" adı ve logosu için TÜRKPATENT'te marka başvurusu
 - [ ] `acikdurak.com` / `.app` domainleri
-- [ ] Mağaza sayfaları için gizlilik politikası (uygulama veri toplamıyor, konum sadece cihazda kullanılıyor)
+- [x] Mağaza sayfaları için gizlilik politikası (uygulama veri toplamıyor, konum sadece cihazda kullanılıyor)
 - [ ] Harita karoları: yayından önce OSM yerine kendi sunucu ya da ücretli bir sağlayıcı (README'de yazıyor)

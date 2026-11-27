@@ -2,6 +2,8 @@
 
 **Son güncelleme:** 27 Kasım 2026
 
+Geçerli sürüm her zaman https://apps.modernisler.com/acik-durak/gizlilik adresindedir.
+
 Bu politika, Modern Yazılım ve Bilişim Teknolojileri San. Tic. Ltd. Şti. ("biz") tarafından yayınlanan **Açık Durak** mobil uygulaması için geçerlidir.
 
 ## Kısaca
@@ -45,5 +47,7 @@ Sorular için: https://github.com/ModernYazilim/acik-durak/issues
 ---
 
 # Privacy Policy (English)
+
+The current version is always at https://apps.modernisler.com/en/acik-durak/privacy
 
 Açık Durak, published by Modern Yazılım ve Bilişim Teknolojileri San. Tic. Ltd. Şti., does not require an account and does not collect personal data. It has no ads, analytics or tracking. Your profile, places, favorites, settings and reminders are stored only on your device. Location, if permitted, is used on the device to show nearby stops and is never sent to us or stored. Reminders are local notifications. Transit data is fetched directly from public services of İETT, İBB, Metro İstanbul, Şehir Hatları and İSPARK, and map tiles from OpenStreetMap; these services receive your IP address as with any internet request. The app is not affiliated with these institutions. Source code: https://github.com/ModernYazilim/acik-durak. Contact: https://github.com/ModernYazilim/acik-durak/issues

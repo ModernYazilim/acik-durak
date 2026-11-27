@@ -96,6 +96,6 @@ Kaynak kod [GNU General Public License v3.0](LICENSE) ile lisanslıdır. Kodu ku
 
 "Açık Durak" adı, uygulama simgesi ve logoları lisansın kapsamında değildir. Kendi sürümünü yayınlayacaksan [TRADEMARKS.md](TRADEMARKS.md) dosyasına bak. App Store ve Google Play'deki resmi uygulama sadece Modern Yazılım tarafından yayınlanır.
 
-[Gizlilik politikası](PRIVACY.md)
+[Gizlilik politikası](https://apps.modernisler.com/acik-durak/gizlilik) · [Kullanım koşulları](https://apps.modernisler.com/acik-durak/kullanim-kosullari)
 
 Harita verisi © [OpenStreetMap](https://www.openstreetmap.org/copyright) katkıcıları (ODbL).

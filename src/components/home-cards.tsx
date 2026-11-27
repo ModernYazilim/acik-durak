@@ -173,11 +173,12 @@ export function FavFerryRow({ f }: { f: Extract<Favorite, { kind: 'ferry' }> }) 
 }
 
 export function PlaceCard({ slot, place }: { slot: 'home' | 'work'; place?: Place }) {
+  const c = useTheme();
   const title = slot === 'home' ? 'Eve git' : 'İşe git';
   if (!place) {
     return (
       <Pressable style={{ flex: 1 }} onPress={() => router.push({ pathname: '/place-picker', params: { slot } })}>
-        <Card style={[styles.place, { borderStyle: 'dashed', borderWidth: 1, borderColor: '#999' }]}>
+        <Card style={[styles.place, { borderStyle: 'dashed', borderWidth: 1, borderColor: c.textSecondary }]}>
           <T bold>{slot === 'home' ? '⌂ Ev ekle' : '▣ İş ekle'}</T>
           <T dim size={12}>
             Tek dokunuşla yol tarifi
@@ -196,7 +197,7 @@ export function PlaceCard({ slot, place }: { slot: 'home' | 'work'; place?: Plac
         <T dim size={12} numberOfLines={1}>
           {place.label}
         </T>
-        <T size={12} color={Brand.blue}>
+        <T size={12} color={c.link}>
           Toplu taşımayla yol tarifi ›
         </T>
       </Card>

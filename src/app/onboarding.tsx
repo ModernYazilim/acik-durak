@@ -70,7 +70,7 @@ export default function Onboarding() {
               </T>
               <Button title="Başlayalım" onPress={() => setStep(1)} />
               <Pressable onPress={() => router.push('/restore')} style={styles.link}>
-                <T color={Brand.blue}>Yedeğim var, geri yükle</T>
+                <T color={c.link}>Yedeğim var, geri yükle</T>
               </Pressable>
             </>
           ) : null}

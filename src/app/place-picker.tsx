@@ -125,7 +125,7 @@ export default function PlacePicker() {
                 </T>
               </View>
               <View style={styles.locBtn}>
-                <Button title="Konumum" onPress={useMyLocation} color="#333" />
+                <Button title="Konumum" onPress={useMyLocation} color={c.neutral} />
               </View>
             </View>
 
@@ -149,7 +149,7 @@ export default function PlacePicker() {
                 {existing ? (
                   <Button
                     title="Kaldır"
-                    color="#777"
+                    color={c.neutral}
                     style={{ flex: 1 }}
                     onPress={() => {
                       actions.setPlace(slot, undefined);

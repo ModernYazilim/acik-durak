@@ -123,7 +123,7 @@ https://www.iett.istanbul/StationDetail?dkod=${code}`,
 
         {fav ? (
           <Pressable onPress={() => router.push({ pathname: '/favorite-edit', params: { kind: 'stop', code } })}>
-            <T size={13} color={Brand.blue} style={{ paddingHorizontal: 16 }}>
+            <T size={13} color={c.link} style={{ paddingHorizontal: 16 }}>
               {fav.alias ? `Favorilerinde "${fav.alias}" olarak kayıtlı · ` : 'Favorilerinde · '}
               {fav.lines?.length ? `${fav.lines.join(', ')} hatları seçili · ` : ''}düzenle
             </T>
@@ -189,7 +189,7 @@ https://www.iett.istanbul/StationDetail?dkod=${code}`,
 
         {detail ? (
           <>
-            <SectionTitle right={<Pressable onPress={startDetail}><T size={13} color={Brand.blue}>Yenile</T></Pressable>}>Araç detayları</SectionTitle>
+            <SectionTitle right={<Pressable onPress={startDetail}><T size={13} color={c.link}>Yenile</T></Pressable>}>Araç detayları</SectionTitle>
             {detail.vehicles.length === 0 ? <Empty text="Araç bilgisi yok" /> : null}
             {detail.vehicles.map((v, i) => (
               <View key={`${v.door}-${i}`}>

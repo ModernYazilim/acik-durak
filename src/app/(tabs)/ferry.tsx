@@ -3,7 +3,7 @@ import { RefreshControl, ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { getFerryCancellations, getFerryLines } from '@/api/ferry';
-import { Brand, Card, ErrorBox, Loading, Row, SectionTitle, Separator, T } from '@/components/ui';
+import { Card, ErrorBox, Loading, Row, SectionTitle, Separator, T } from '@/components/ui';
 import { useAsync } from '@/hooks/use-async';
 import { useTheme } from '@/hooks/use-theme';
 
@@ -29,7 +29,7 @@ export default function FerryHome() {
         </View>
 
         {cancel.data ? (
-          <Card style={{ margin: 16, gap: 4, backgroundColor: cancel.data.text.includes('bulunmamaktadır') ? c.backgroundElement : '#FFF4E5' }}>
+          <Card style={{ margin: 16, gap: 4, backgroundColor: cancel.data.text.includes('bulunmamaktadır') ? c.backgroundElement : c.warnBackground }}>
             <T bold size={14}>
               İptal seferler {cancel.data.date ? `· ${cancel.data.date}` : ''}
             </T>
@@ -67,7 +67,7 @@ export default function FerryHome() {
         ))}
 
         <T dim size={12} style={{ padding: 16 }}>
-          Turyol, Dentur ve İDO seferleri için herkese açık güncel bir veri servisi bulunamadı. <T size={12} color={Brand.blue}>Yakınımda</T> sekmesinde iskeleleri haritada görebilirsin.
+          Turyol, Dentur ve İDO seferleri için herkese açık güncel bir veri servisi bulunamadı. <T size={12} color={c.link}>Yakınımda</T> sekmesinde iskeleleri haritada görebilirsin.
         </T>
       </ScrollView>
     </SafeAreaView>

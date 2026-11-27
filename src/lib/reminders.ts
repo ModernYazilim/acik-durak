@@ -26,7 +26,7 @@ async function ensurePermission() {
         enableVibrate: true,
         showBadge: false,
         sound: 'default',
-        lightColor: '#E30613',
+        lightColor: '#E3141E',
       });
       channelReady = true;
     } catch (e) {

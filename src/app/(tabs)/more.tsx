@@ -27,6 +27,12 @@ const EXTERNAL = [
   { title: 'Gece hatları', sub: 'İETT bilgi sayfası', url: 'https://www.iett.istanbul/icerik/gece-hatlari' },
 ];
 
+const ABOUT = [
+  { title: 'Gizlilik politikası', url: 'https://apps.modernisler.com/acik-durak/gizlilik' },
+  { title: 'Kullanım koşulları', url: 'https://apps.modernisler.com/acik-durak/kullanim-kosullari' },
+  { title: 'Kaynak kod', url: 'https://github.com/ModernYazilim/acik-durak' },
+];
+
 export default function More() {
   const c = useTheme();
   const { profile, favorites, reminders } = useStore();
@@ -82,6 +88,14 @@ export default function More() {
         {EXTERNAL.map((l) => (
           <View key={l.title}>
             <Row onPress={() => WebBrowser.openBrowserAsync(l.url)} title={l.title} subtitle={l.sub} right={<T dim>↗</T>} />
+            <Separator />
+          </View>
+        ))}
+
+        <SectionTitle>Hakkında</SectionTitle>
+        {ABOUT.map((l) => (
+          <View key={l.title}>
+            <Row onPress={() => WebBrowser.openBrowserAsync(l.url)} title={l.title} right={<T dim>↗</T>} />
             <Separator />
           </View>
         ))}

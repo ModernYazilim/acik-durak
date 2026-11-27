@@ -146,6 +146,11 @@ def mark(size, scale=1.0, c=COLOR):
     return art.resize((size, size), Image.LANCZOS)
 
 
+def background(size, w=None, h=None):
+    """Düz kırmızı zemin. Ekran görüntüsü çerçeveleri de bunu kullanır."""
+    return Image.new('RGBA', (w or size, h or size), RED)
+
+
 def icon(size, scale=1.0, bg=RED):
     im = Image.new('RGBA', (size, size), bg)
     im.alpha_composite(mark(size, scale))
@@ -174,7 +179,7 @@ def main():
     mark(512).save(IMG / 'splash-icon.png')
 
     # Play Store öne çıkan görsel (1024x500)
-    fg = Image.new('RGBA', (1024, 500), RED)
+    fg = background(0, 1024, 500)
     fg.alpha_composite(mark(440), (20, 30))
     d = ImageDraw.Draw(fg)
     d.text((470, 150), 'Açık Durak', font=font(84), fill=WHITE)

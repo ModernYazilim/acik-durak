@@ -38,9 +38,18 @@ jobs:
           PRIVATE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           if ! [[ "$AUTHOR" =~ ^[A-Za-z0-9-]+$ ]]; then echo "Geçersiz kullanıcı adı"; exit 1; fi
-          npx -y -p @all-contributors/cli@7 all-contributors add "$AUTHOR" "$KIND"
-          npx -y -p @all-contributors/cli@7 all-contributors generate
           echo "author=$AUTHOR" >> "$GITHUB_OUTPUT"
+          # Zaten listedeyse sadece eksik katkı türü eklenir. CLI'nın add komutu mevcut türlerin üzerine yazıyor.
+          if jq -e --arg u "$AUTHOR" '.contributors[] | select(.login == $u)' .all-contributorsrc > /dev/null; then
+            if jq -e --arg u "$AUTHOR" --arg k "$KIND" '.contributors[] | select(.login == $u) | .contributions | index($k)' .all-contributorsrc > /dev/null; then
+              echo "@$AUTHOR zaten '$KIND' katkısıyla listede"; exit 0
+            fi
+            jq --arg u "$AUTHOR" --arg k "$KIND" '(.contributors[] | select(.login == $u) | .contributions) += [$k]' .all-contributorsrc > tmp.json
+            mv tmp.json .all-contributorsrc
+          else
+            npx -y -p @all-contributors/cli@7 all-contributors add "$AUTHOR" "$KIND"
+          fi
+          npx -y -p @all-contributors/cli@7 all-contributors generate
 
       - uses: peter-evans/create-pull-request@v8
         with:

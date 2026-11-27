@@ -121,6 +121,7 @@ Aşağıdakilerin bir kısmı repo oluşturulurken yapıldı, işaretli olmayanl
 - [x] `main` dal koruması: PR zorunlu, 1 onay, CODEOWNERS onayı, zorunlu CI ve CLA kontrolleri, force push kapalı
 - [x] Actions: ilk kez katkı verenlerin workflow'ları onay bekler, varsayılan token izni sadece okuma
 - [x] Private vulnerability reporting, Dependabot uyarıları, secret scanning açık
+- [ ] Organizasyon ayarı: Organization settings > Actions > General > Workflow permissions altında "Allow GitHub Actions to create and approve pull requests" kutusunu işaretle. Sonra aynı kutuyu repo ayarlarında (Settings > Actions > General) da işaretle. Katkıcılar listesi PR'ı bunun için gerekli. Bu ayar organizasyondaki diğer repoların workflow'larını değiştirmez, sadece izin verir.
 - [ ] `ANTHROPIC_API_KEY` secret'ını ekle (Settings > Secrets and variables > Actions). AI incelemesi için. Anahtar yoksa AI inceleme işi hata verir, diğer kontroller etkilenmez.
 - [ ] Settings > Environments > `production` ortamına onaylayıcı olarak kendini ekle, `EXPO_TOKEN` secret'ını bu ortama tanımla
 - [ ] Settings > Variables: `STORE_RELEASE` = `true` (EAS hazır olduğunda)

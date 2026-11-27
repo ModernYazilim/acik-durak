@@ -16,12 +16,15 @@ import {
 
 import { useTheme } from '@/hooks/use-theme';
 
+// Simgedeki renkler: kırmızı otobüs, sarı raylı sistem, mavi deniz, lacivert zemin
 export const Brand = {
-  red: '#E30613',
+  red: '#E3141E',
   blue: '#0B5CAD',
   green: '#1E8E3E',
-  orange: '#F29100',
-  ferry: '#00838F',
+  orange: '#E58A00',
+  ferry: '#0F7DB8',
+  rail: '#F5B700',
+  navy: '#101C3A',
 };
 
 export function T({ style, dim, bold, size, color, ...p }: TextProps & { dim?: boolean; bold?: boolean; size?: number; color?: string }) {

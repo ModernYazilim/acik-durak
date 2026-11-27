@@ -149,9 +149,9 @@ export default function ProfileScreen() {
       <T dim size={13} style={{ paddingHorizontal: 16, paddingBottom: 4 }}>
         Hesap sunucusu olmadığı için verilerin sadece bu telefonda duruyor. Telefon değiştirirken yedeği al, yeni telefonda geri yükle.
       </T>
-      <Row onPress={backup} title={<T color={Brand.blue}>Yedeği kopyala / paylaş</T>} />
+      <Row onPress={backup} title={<T color={c.link}>Yedeği kopyala / paylaş</T>} />
       <Separator />
-      <Row onPress={() => router.push('/restore')} title={<T color={Brand.blue}>Yedekten geri yükle</T>} />
+      <Row onPress={() => router.push('/restore')} title={<T color={c.link}>Yedekten geri yükle</T>} />
 
       <SectionTitle>Hesap</SectionTitle>
       <Row onPress={reset} title={<T color={Brand.red}>Tüm verileri sil ve çıkış yap</T>} />

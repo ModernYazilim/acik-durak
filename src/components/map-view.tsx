@@ -28,12 +28,15 @@ type Props = {
   style?: StyleProp<ViewStyle>;
 };
 
+// Harita yüklenirken beyaz parlama olmasın diye zemin temaya uygun
+const MAP_BG = { dark: '#0F1524', light: '#EEF0F4' };
+
 const html = (dark: boolean) => `<!doctype html><html><head>
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
-html,body,#m{margin:0;height:100%;background:${dark ? '#111' : '#eee'}}
+html,body,#m{margin:0;height:100%;background:${dark ? MAP_BG.dark : MAP_BG.light}}
 .b{font:700 11px -apple-system,Roboto,sans-serif;color:#fff;padding:2px 5px;border-radius:6px;white-space:nowrap;border:1.5px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.4);transform:translate(-50%,-50%);display:inline-block}
 .d{border-radius:50%;border:1.5px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.4);transform:translate(-50%,-50%)}
 .u{width:16px;height:16px;border-radius:50%;background:#1a73e8;border:3px solid #fff;box-shadow:0 0 0 6px rgba(26,115,232,.25);transform:translate(-50%,-50%)}
@@ -53,7 +56,7 @@ window.setData=function(d){try{
   layer.clearLayers();var b=[];
   (d.lines||[]).forEach(function(l){var p=L.polyline(l.coords,{color:l.color,weight:l.width||5,opacity:.85,dashArray:l.dashed?'6 6':null}).addTo(layer);b.push(p.getBounds())});
   (d.markers||[]).forEach(function(m){
-    var c=m.color||'#e30613',h,s=m.size||12;
+    var c=m.color||'#E3141E',h,s=m.size||12;
     if(m.kind==='badge'||m.label){h='<span class="b" style="background:'+c+'">'+esc(m.label||'')+'</span>'}
     else{h='<div class="d" style="width:'+s+'px;height:'+s+'px;background:'+c+'"></div>'}
     var mk=L.marker([m.lat,m.lng],{icon:L.divIcon({html:h,className:'',iconSize:[0,0]})}).addTo(layer);
@@ -100,7 +103,7 @@ export function MapView({ markers, lines, center, zoom, fit, user, onMarkerPress
   };
 
   return (
-    <View style={[styles.wrap, style]}>
+    <View style={[styles.wrap, { backgroundColor: dark ? MAP_BG.dark : MAP_BG.light }, style]}>
       <WebView<object>
         ref={ref}
         source={source}
@@ -109,7 +112,7 @@ export function MapView({ markers, lines, center, zoom, fit, user, onMarkerPress
         javaScriptEnabled
         domStorageEnabled
         setSupportMultipleWindows={false}
-        style={styles.web}
+        style={[styles.web, { backgroundColor: 'transparent' }]}
       />
     </View>
   );

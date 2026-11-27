@@ -114,8 +114,8 @@ export default function RailLineScreen() {
         </View>
 
         {status.data?.map((s, i) => (
-          <Card key={i} style={{ marginHorizontal: 16, marginBottom: 8, backgroundColor: '#FFF4E5' }}>
-            <T size={13} color="#8A4B00">
+          <Card key={i} style={{ marginHorizontal: 16, marginBottom: 8, backgroundColor: c.warnBackground }}>
+            <T size={13} color={c.warnText}>
               {s.text}
             </T>
           </Card>
@@ -133,7 +133,7 @@ export default function RailLineScreen() {
           <View style={{ paddingHorizontal: 16, paddingBottom: 10 }}>
             <Button
               title={stationFav ? '★ Bu istasyon ve yön favorilerinde' : '☆ Bu istasyon ve yönü favorilere ekle'}
-              color={stationFav ? '#777' : color}
+              color={stationFav ? c.neutral : color}
               onPress={() =>
                 toggleFavorite({
                   kind: 'station',
@@ -233,7 +233,7 @@ export default function RailLineScreen() {
             <SectionTitle
               right={
                 <Pressable onPress={() => setShowInfo(!showInfo)}>
-                  <T size={13} color={Brand.blue}>
+                  <T size={13} color={c.link}>
                     {showInfo ? 'Gizle' : 'Göster'}
                   </T>
                 </Pressable>

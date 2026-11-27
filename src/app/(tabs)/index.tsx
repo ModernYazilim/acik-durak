@@ -160,8 +160,8 @@ export default function Home() {
 
           {activeReminders.length ? (
             <Pressable onPress={() => router.push('/reminders')}>
-              <Card style={[styles.reminder, { backgroundColor: '#FFF4E5' }]}>
-                <T color="#8A4B00" size={14}>
+              <Card style={[styles.reminder, { backgroundColor: c.warnBackground }]}>
+                <T color={c.warnText} size={14}>
                   ⏰ {activeReminders.length} aktif hatırlatıcı · sıradaki{' '}
                   {new Date(activeReminders[0].at).toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' })}
                 </T>
@@ -173,7 +173,7 @@ export default function Home() {
             right={
               favorites.length ? (
                 <Pressable onPress={() => router.push('/favorites')} hitSlop={8}>
-                  <T size={13} color={Brand.blue}>
+                  <T size={13} color={c.link}>
                     Düzenle
                   </T>
                 </Pressable>
@@ -198,7 +198,7 @@ export default function Home() {
               <SectionTitle
                 right={
                   <Pressable onPress={clearRecents} hitSlop={8}>
-                    <T size={13} color={Brand.blue}>
+                    <T size={13} color={c.link}>
                       Temizle
                     </T>
                   </Pressable>

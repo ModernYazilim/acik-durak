@@ -84,7 +84,7 @@ export default function FerryLine() {
                       <T bold size={13} color="#fff">
                         {col.pier}
                       </T>
-                      <T size={10} color="#E0F7FA">
+                      <T size={10} color="#fff">
                         {col.kind}
                       </T>
                     </View>
@@ -109,7 +109,7 @@ export default function FerryLine() {
                       }}
                       style={[
                         styles.tr,
-                        { backgroundColor: isNext ? '#E0F7FA' : ri % 2 ? c.backgroundElement : c.background, opacity: past ? 0.45 : 1 },
+                        { backgroundColor: isNext ? c.seaSoft : ri % 2 ? c.backgroundElement : c.background, opacity: past ? 0.45 : 1 },
                       ]}>
                       {r.map((cell, ci) => (
                         <View key={ci} style={styles.td}>

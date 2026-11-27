@@ -4,11 +4,23 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import { useColorScheme } from 'react-native';
 
+import { Brand } from '@/components/ui';
+import { Colors } from '@/constants/theme';
 import '@/lib/reminders';
 import { openItem } from '@/lib/nav';
 import { actions, FavKey, useStore } from '@/lib/store';
 
 SplashScreen.preventAutoHideAsync();
+
+// Başlık çubuğu ve ekran zemini uygulama paletiyle aynı olsun
+const navTheme = (dark: boolean) => {
+  const base = dark ? DarkTheme : DefaultTheme;
+  const c = Colors[dark ? 'dark' : 'light'];
+  return {
+    ...base,
+    colors: { ...base.colors, primary: Brand.red, background: c.background, card: c.background, text: c.text, border: c.backgroundSelected },
+  };
+};
 
 export default function RootLayout() {
   const scheme = useColorScheme();
@@ -38,7 +50,7 @@ export default function RootLayout() {
   if (!ready) return null;
 
   return (
-    <ThemeProvider value={scheme === 'dark' ? DarkTheme : DefaultTheme}>
+    <ThemeProvider value={navTheme(scheme === 'dark')}>
       <Stack screenOptions={{ headerBackTitle: 'Geri' }}>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="stop/[code]" options={{ title: 'Durak' }} />

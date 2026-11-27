@@ -53,7 +53,7 @@ export const DEFAULT_SETTINGS: Settings = {
   liveOnHome: true,
 };
 
-export const PROFILE_COLORS = ['#E30613', '#0B5CAD', '#1E8E3E', '#F29100', '#00838F', '#6A1B9A', '#455A64'];
+export const PROFILE_COLORS = ['#E3141E', '#0B5CAD', '#1E8E3E', '#E58A00', '#0F7DB8', '#6A1B9A', '#455A64'];
 
 const KEY = 'acik-durak:v2';
 const PREV_KEY = 'istanbul-ulasim:v2';

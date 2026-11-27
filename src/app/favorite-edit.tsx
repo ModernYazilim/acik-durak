@@ -79,7 +79,7 @@ export default function FavoriteEdit() {
 
       <View style={{ padding: 16, gap: 10, marginTop: 12 }}>
         <Button title="Kaydet" onPress={save} />
-        <Button title="Favorilerden çıkar" onPress={remove} color="#777" />
+        <Button title="Favorilerden çıkar" onPress={remove} color={c.neutral} />
       </View>
     </ScrollView>
   );

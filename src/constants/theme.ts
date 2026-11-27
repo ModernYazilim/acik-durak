@@ -5,20 +5,34 @@
 
 import { Platform } from 'react-native';
 
+// Simgedeki lacivert tonundan türetilmiş, saf siyah ve saf beyaz kullanılmayan palet.
+// Koyu modda zemin lacivert, metin kırık beyaz; uzun kullanımda gözü daha az yorar.
 export const Colors = {
   light: {
-    text: '#000000',
-    background: '#ffffff',
-    backgroundElement: '#F0F0F3',
-    backgroundSelected: '#E0E1E6',
-    textSecondary: '#60646C',
+    text: '#1A2033',
+    background: '#FAFAFC',
+    backgroundElement: '#EEF0F4',
+    backgroundSelected: '#DFE3EA',
+    textSecondary: '#5B6478',
+    neutral: '#6B7385',
+    link: '#0B5CAD',
+    warnBackground: '#FFF3D6',
+    warnText: '#7A4A00',
+    seaSoft: '#E1F1FA',
+    redSoft: '#FCE6E7',
   },
   dark: {
-    text: '#ffffff',
-    background: '#000000',
-    backgroundElement: '#212225',
-    backgroundSelected: '#2E3135',
-    textSecondary: '#B0B4BA',
+    text: '#E6E9F0',
+    background: '#0F1524',
+    backgroundElement: '#1A2235',
+    backgroundSelected: '#273149',
+    textSecondary: '#9AA3B5',
+    neutral: '#4A556E',
+    link: '#7DB8F2',
+    warnBackground: '#3A2F14',
+    warnText: '#F2C76B',
+    seaSoft: '#15354D',
+    redSoft: '#3D1C24',
   },
 } as const;
 

@@ -42,9 +42,9 @@ export default function RailHome() {
             {statuses.data
               .filter((s) => s.active)
               .map((s) => (
-                <Card key={s.lineId} style={{ marginHorizontal: 16, marginBottom: 8, backgroundColor: '#FFF4E5', flexDirection: 'row', gap: 10 }}>
+                <Card key={s.lineId} style={{ marginHorizontal: 16, marginBottom: 8, backgroundColor: c.warnBackground, flexDirection: 'row', gap: 10 }}>
                   <LineBadge code={s.line} color={Brand.orange} />
-                  <T size={13} color="#8A4B00" style={{ flex: 1 }}>
+                  <T size={13} color={c.warnText} style={{ flex: 1 }}>
                     {s.text}
                   </T>
                 </Card>

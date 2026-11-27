@@ -120,9 +120,9 @@ export default function LineScreen() {
         </View>
 
         {alerts.data?.length ? (
-          <Card style={{ marginHorizontal: 16, marginBottom: 8, backgroundColor: '#FFF4E5' }}>
+          <Card style={{ marginHorizontal: 16, marginBottom: 8, backgroundColor: c.warnBackground }}>
             {alerts.data.map((a, i) => (
-              <T key={i} size={13} color="#8A4B00">
+              <T key={i} size={13} color={c.warnText}>
                 {a}
               </T>
             ))}
@@ -210,7 +210,7 @@ export default function LineScreen() {
                       ) : (
                         <View style={styles.grid}>
                           {d.times.map((x, i) => (
-                            <View key={i} style={[styles.time, { backgroundColor: x.highlighted ? '#FDE7E9' : c.backgroundElement }]}>
+                            <View key={i} style={[styles.time, { backgroundColor: x.highlighted ? c.redSoft : c.backgroundElement }]}>
                               <T bold size={14} color={x.highlighted ? Brand.red : undefined}>
                                 {x.time}
                               </T>

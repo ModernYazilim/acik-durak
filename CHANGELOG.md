@@ -12,3 +12,5 @@ Bu dosyada her sürümdeki önemli değişiklikler yer alır.
 - Yakınımda: duraklar, istasyonlar, iskeleler, İSPARK ve taksi durakları
 - Profil, ana sayfa panosu, favoriler, hatırlatıcılar, yedekleme
 - Tema, yenileme sıklığı ve erişilebilirlik ayarları
+- Otobüs, tramvay ve vapuru bir arada gösteren yeni uygulama simgesi
+- Simgeyle uyumlu, koyu modda lacivert zeminli ve göz yormayan renk paleti

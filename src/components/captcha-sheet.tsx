@@ -80,7 +80,7 @@ export function CaptchaSheet({ visible, stopKey, onClose, onSuccess }: Props) {
           />
           {err ? <T color={Brand.red} size={13}>{err}</T> : null}
           <View style={{ flexDirection: 'row', gap: 8 }}>
-            <Button title="Vazgeç" onPress={onClose} color="#777" style={{ flex: 1 }} />
+            <Button title="Vazgeç" onPress={onClose} color={c.neutral} style={{ flex: 1 }} />
             <Button title={busy ? 'Kontrol ediliyor' : 'Göster'} onPress={submit} disabled={busy} style={{ flex: 1 }} />
           </View>
         </View>

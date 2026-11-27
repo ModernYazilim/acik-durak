@@ -189,7 +189,7 @@ export default function Nearby() {
         />
         <View style={styles.mapButtons}>
           {moved ? <Button title="Bu bölgede ara" onPress={() => setCenter(mapCenter)} color={Brand.blue} /> : null}
-          <Button title="Konumum" onPress={() => locate().catch(() => setPerm('denied'))} color="#333" />
+          <Button title="Konumum" onPress={() => locate().catch(() => setPerm('denied'))} color={c.neutral} />
         </View>
       </View>
 

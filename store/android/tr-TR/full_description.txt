@@ -1,0 +1,53 @@
+Açık Durak, İstanbul'da toplu taşıma kullananlar için hazırlanmış ücretsiz ve reklamsız bir ulaşım uygulaması. Otobüsün durağa kaç dakikada geleceğini, metronun sıradaki seferini, vapur saatlerini ve yakınındaki durakları tek yerden görürsün.
+
+OTOBÜS (İETT)
+• Durak ve hat arama: durak adı, durak kodu ya da hat numarasıyla ara
+• Duraktaki yaklaşan otobüsler ve kaç dakika kaldığı, otomatik yenilenir
+• Canlı araç konumları: hattaki otobüsleri haritada gör
+• Hat güzergahı, iki yönün durakları, sefer saatleri (iş günü, cumartesi, pazar)
+• Duraktan geçen hatlar ve durak duyuruları
+• Araç özellikleri: klima, wifi, USB, bisiklet aparatı, engelli erişimi
+
+METRO, TRAMVAY, FÜNİKÜLER, TELEFERİK
+• Metro İstanbul'un işlettiği tüm metro, tramvay, füniküler ve teleferik hatları (M1, M2, T1, F1 vb.)
+• İstasyonlar, yöne göre sonraki metro ve tramvay seferleri
+• İstasyon olanakları: asansör, yürüyen merdiven, WC, mescit
+• Arıza ve hat durumu bilgisi
+
+VAPUR (ŞEHİR HATLARI)
+• Vapur hatları ve sefer saatleri
+• İptal edilen seferler
+• Sıradaki vapura ne kadar kaldığı
+
+YAKINIMDA
+• Konumuna en yakın otobüs durakları, metro ve tramvay istasyonları, vapur iskeleleri
+• İSPARK otoparkları ve anlık boş yer sayısı
+• Taksi durakları
+• Yürüyerek ya da toplu taşımayla yol tarifi
+
+SANA ÖZEL ANA SAYFA
+• Favori durak, favori otobüs hattı, favori metro istasyonu ve vapur hattı
+• Ana sayfada favori duraklarının canlı varış süreleri
+• Ev ve iş konumu ekle, tek dokunuşla yol tarifi al
+• Hatırlatıcı: otobüs, metro ya da vapur gelmeden "5 dk kala" bildirim
+• Açık ve koyu tema
+
+DAHA FAZLASI
+• İETT ve Metro İstanbul duyuruları
+• İstanbul trafik yoğunluğu ve son 24 saat
+• İstanbulkart ücret tarifesi
+
+GİZLİLİK
+Hesap açman gerekmez. Profilin, favorilerin ve ayarların sadece telefonunda saklanır. Reklam, analitik ya da izleme yok. Konumun sadece yakındaki durakları göstermek için cihazında kullanılır.
+
+AÇIK KAYNAK
+Açık Durak açık kaynak bir proje. Kaynak kodu GitHub'da herkese açık, hata bildirebilir ya da geliştirmeye katkı verebilirsin: github.com/ModernYazilim/acik-durak
+
+VERİ KAYNAKLARI VE ÖNEMLİ NOT
+Açık Durak; İETT, İstanbul Büyükşehir Belediyesi (İBB), Metro İstanbul, Şehir Hatları veya başka bir kamu kurumunun resmi uygulaması değildir ve bu kurumlarla bağlantısı yoktur. Uygulamadaki bilgiler bu kurumların herkese açık kaynaklarından alınır:
+• İETT: iett.istanbul
+• İBB Açık Veri Portalı: data.ibb.gov.tr
+• Metro İstanbul: metro.istanbul
+• Şehir Hatları: sehirhatlari.istanbul
+• İSPARK: ispark.istanbul
+Varış süreleri ve sefer saatleri kurumların verdiği bilgilere dayanır, gecikme ya da değişiklik olabilir.

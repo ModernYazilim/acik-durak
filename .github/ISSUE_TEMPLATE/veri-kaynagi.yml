@@ -1,0 +1,25 @@
+name: Veri kaynağı sorunu
+description: Bir servis yanıt vermiyor, yapısı değişti ya da yeni bir kaynak önermek istiyorsun
+labels: [veri kaynağı]
+body:
+  - type: dropdown
+    id: kaynak
+    attributes:
+      label: Hangi kaynak?
+      options:
+        - İETT (iett.istanbul)
+        - İETT durak servisi (durak.iett.gov.tr)
+        - İBB açık veri / api.ibb.gov.tr
+        - Metro İstanbul
+        - Şehir Hatları
+        - İSPARK
+        - Yeni bir kaynak
+    validations:
+      required: true
+  - type: textarea
+    id: ne
+    attributes:
+      label: Ne değişti ya da ne öneriyorsun?
+      description: Hata mesajı, değişen sayfa adresi ya da önerdiğin servisin bağlantısı.
+    validations:
+      required: true

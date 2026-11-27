@@ -1,0 +1,54 @@
+# Store yayını: sadece şirket reposunda ve "prod" dalına push edildiğinde çalışır.
+# Fork'larda STORE_RELEASE değişkeni ve secret'lar olmadığı için iş hiç başlamaz.
+# Mağaza kimlik bilgileri (App Store Connect API anahtarı, Google Play servis hesabı) repoda değil,
+# EAS üzerinde şirket hesabında saklanır. Repoda sadece EXPO_TOKEN secret'ı bulunur.
+name: Store yayını
+
+on:
+  push:
+    branches: [prod]
+  workflow_dispatch:
+    inputs:
+      platform:
+        description: Platform
+        type: choice
+        options: [all, android, ios]
+        default: all
+
+permissions:
+  contents: read
+
+concurrency:
+  group: store-release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    if: vars.STORE_RELEASE == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    # "production" ortamında onaylayıcı tanımlanırsa yayın onaydan sonra başlar.
+    environment: production
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+
+      - name: Kontroller
+        run: |
+          npx tsc --noEmit
+          npx expo lint --max-warnings 0
+
+      - uses: expo/expo-github-action@v9
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      # Build EAS sunucularında alınır ve bitince mağazalara otomatik gönderilir.
+      - name: Build ve mağazalara gönderim
+        env:
+          PLATFORM: ${{ inputs.platform || 'all' }}
+        run: eas build --platform "$PLATFORM" --profile production --non-interactive --no-wait --auto-submit

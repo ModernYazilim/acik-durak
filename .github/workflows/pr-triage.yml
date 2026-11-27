@@ -1,0 +1,39 @@
+# PR'lara değişen klasörlere göre etiket ekler, ilk kez katkı verenleri karşılar.
+# pull_request_target kullanılır ama PR kodu checkout edilmez ve çalıştırılmaz.
+name: PR etiketleme
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/labeler@v7
+        with:
+          sync-labels: false
+
+      - name: İlk katkıyı karşıla
+        if: >
+          github.event.action == 'opened' &&
+          (github.event.pull_request.author_association == 'FIRST_TIME_CONTRIBUTOR' ||
+           github.event.pull_request.author_association == 'FIRST_TIMER')
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ github.event.pull_request.number }}
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+        run: |
+          gh pr comment "$PR" --repo "$GITHUB_REPOSITORY" --body "Merhaba @$AUTHOR, ilk katkın için teşekkürler!
+
+          Süreç şöyle işliyor:
+          1. CLA botu senden katkı sözleşmesini kabul etmeni isteyecek, tek bir yorumla bitiyor.
+          2. Otomatik kontroller (typecheck, lint, paketleme) çalışacak. İlk katkılarda bunları bir bakımcının başlatması gerekebiliyor.
+          3. Bir bakımcı PR'ı inceleyecek, gerekirse AI destekli incelemeyi de başlatacak.
+          4. PR birleştirilince adın README'deki katkıcılar listesine otomatik eklenecek.
+
+          Ayrıntılar [CONTRIBUTING.md](https://github.com/$GITHUB_REPOSITORY/blob/main/CONTRIBUTING.md) dosyasında."

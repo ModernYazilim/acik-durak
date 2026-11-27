@@ -1,0 +1,52 @@
+# Her PR ve main'e her push'ta çalışır. Fork'lardan gelen PR'larda da secret kullanmadan çalışır.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: Typecheck, lint, doctor
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Typecheck
+        run: npx tsc --noEmit
+      - name: Lint
+        run: npx expo lint --max-warnings 0
+      - name: Expo doctor
+        run: npx expo-doctor
+      - name: Bağımlılık lisansları GPL-3.0 ile uyumlu mu
+        run: >
+          npx -y license-checker-rseidelsohn@4 --production --excludePrivatePackages
+          --onlyAllow "MIT;ISC;BSD-2-Clause;BSD-3-Clause;Apache-2.0;0BSD;BlueOak-1.0.0;Unlicense;CC0-1.0;CC-BY-4.0;MPL-2.0;Python-2.0;GPL-2.0;GPL-3.0;LGPL-3.0"
+
+  bundle:
+    name: Android ve iOS paketleme
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    needs: checks
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx expo export --platform android --platform ios --output-dir dist

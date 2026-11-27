@@ -1,0 +1,52 @@
+# Birleştirilen her PR'ın yazarını README'deki katkıcılar listesine ekler.
+# PR kodu checkout edilmez; main checkout edilir, all-contributors listesi güncellenip ayrı bir PR açılır.
+name: Katkıcılar
+
+on:
+  pull_request_target:
+    types: [closed]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  add:
+    if: github.event.pull_request.merged == true && github.event.pull_request.user.type != 'Bot'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - name: Katkı türünü belirle
+        id: kind
+        env:
+          LABELS: ${{ toJSON(github.event.pull_request.labels.*.name) }}
+        run: |
+          kind=code
+          if echo "$LABELS" | grep -q '"belge"'; then kind=doc; fi
+          if echo "$LABELS" | grep -q '"tasarım"'; then kind=design; fi
+          if echo "$LABELS" | grep -q '"veri kaynağı"'; then kind=data; fi
+          echo "kind=$kind" >> "$GITHUB_OUTPUT"
+
+      - name: Listeye ekle
+        id: add
+        env:
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+          KIND: ${{ steps.kind.outputs.kind }}
+          PRIVATE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if ! [[ "$AUTHOR" =~ ^[A-Za-z0-9-]+$ ]]; then echo "Geçersiz kullanıcı adı"; exit 1; fi
+          npx -y -p @all-contributors/cli@7 all-contributors add "$AUTHOR" "$KIND"
+          npx -y -p @all-contributors/cli@7 all-contributors generate
+          echo "author=$AUTHOR" >> "$GITHUB_OUTPUT"
+
+      - uses: peter-evans/create-pull-request@v8
+        with:
+          branch: katkicilar/${{ steps.add.outputs.author }}
+          title: "Katkıcılara @${{ steps.add.outputs.author }} eklendi"
+          commit-message: "Katkıcılara @${{ steps.add.outputs.author }} eklendi"
+          body: "#${{ github.event.pull_request.number }} birleştirildi, @${{ steps.add.outputs.author }} katkıcılar listesine eklendi."
+          labels: belge
+          delete-branch: true

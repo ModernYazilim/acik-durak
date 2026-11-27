@@ -1,0 +1,43 @@
+# Katkı Lisans Sözleşmesi kontrolü (CLA Assistant Lite).
+# İmzalar repodaki korumasız "cla-imzalar" dalında signatures/cla.json dosyasında tutulur.
+# pull_request_target kullanılır ama PR kodu hiç checkout edilmez, sadece PR meta verisine bakılır.
+name: CLA
+
+on:
+  issue_comment:
+    types: [created]
+  pull_request_target:
+    types: [opened, closed, synchronize]
+
+permissions:
+  actions: write
+  contents: write
+  pull-requests: write
+  statuses: write
+
+jobs:
+  cla:
+    runs-on: ubuntu-latest
+    if: >
+      github.event_name == 'pull_request_target' ||
+      (github.event.issue.pull_request &&
+       (github.event.comment.body == 'recheck' ||
+        github.event.comment.body == 'Katkı Lisans Sözleşmesini okudum ve kabul ediyorum.'))
+    steps:
+      - uses: contributor-assistant/github-action@v2.6.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          path-to-signatures: signatures/cla.json
+          path-to-document: https://github.com/${{ github.repository }}/blob/main/CLA.md
+          branch: cla-imzalar
+          allowlist: dependabot[bot],github-actions[bot],allcontributors[bot],codebycinar
+          custom-pr-sign-comment: Katkı Lisans Sözleşmesini okudum ve kabul ediyorum.
+          custom-notsigned-prcomment: |
+            Katkın için teşekkürler! Birleştirmeden önce [Katkı Lisans Sözleşmesi](https://github.com/${{ github.repository }}/blob/main/CLA.md)'ni kabul etmen gerekiyor. Telif hakkı sende kalıyor, sözleşme uygulamanın mağazalarda yayınlanabilmesi için gerekli.
+
+            Kabul etmek için bu PR'a aşağıdaki cümleyi **aynen** yorum olarak yaz:
+          custom-allsigned-prcomment: Tüm katkıcılar Katkı Lisans Sözleşmesini kabul etti, teşekkürler.
+          create-file-commit-message: CLA imza dosyası oluşturuldu
+          signed-commit-message: "$contributorName CLA'yı kabul etti ($owner/$repo#$pullRequestNo)"
+          lock-pullrequest-aftermerge: false

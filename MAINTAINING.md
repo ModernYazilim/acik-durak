@@ -20,7 +20,7 @@ Katkıcılar genelde issue'lardan gelir. Bir kişi hata bildirir ya da öneri ya
 - **Yeni issue'lar:** etiket ver (`hata`, `öneri`, `veri kaynağı`), yanlış ya da tekrar edenleri kapat. Belirsizse soru sor. İlk yanıtı birkaç gün içinde vermek önemli, cevapsız kalan issue katkıcıyı kaçırır.
 - **Açık PR'lar:** aşağıdaki inceleme listesine göre bak. Uzun süre bekletme, en azından "bakacağım" yaz.
 - **Dependabot PR'ları:** CI yeşilse ve değişiklik küçükse birleştir.
-- **Katkıcılar botu PR'ları:** doğrudan birleştir.
+- **Katkıcılar botu PR'ları:** sadece `README.md` ve `.all-contributorsrc` dosyalarını değiştirdiğini kontrol et ve birleştir. GitHub, Actions'ın açtığı PR'larda kontrolleri çalıştırmadığı için zorunlu kontroller beklemede kalır. Birleştirirken "Merge without waiting for requirements to be met" seçeneğini işaretlemen gerekir.
 
 Her şeye hemen yanıt vermek zorunda değilsin. README'de ya da issue'larda "haftada bir bakıyoruz" demek yeterli. Bakımcı yorgunluğu açık kaynağın en sık ölüm sebebi, süreyi baştan sınırlamak doğru.
 
@@ -127,7 +127,7 @@ Aşağıdakilerin bir kısmı repo oluşturulurken yapıldı, işaretli olmayanl
 - [x] `main` dal koruması: PR zorunlu, 1 onay, CODEOWNERS onayı, zorunlu CI ve CLA kontrolleri, force push kapalı
 - [x] Actions: ilk kez katkı verenlerin workflow'ları onay bekler, varsayılan token izni sadece okuma
 - [x] Private vulnerability reporting, Dependabot uyarıları, secret scanning açık
-- [ ] Organizasyon ayarı: Organization settings > Actions > General > Workflow permissions altında "Allow GitHub Actions to create and approve pull requests" kutusunu işaretle. Sonra aynı kutuyu repo ayarlarında (Settings > Actions > General) da işaretle. Katkıcılar listesi PR'ı bunun için gerekli. Bu ayar organizasyondaki diğer repoların workflow'larını değiştirmez, sadece izin verir.
+- [x] Actions'ın PR açabilmesi için organizasyon ve repo ayarlarında "Allow GitHub Actions to create and approve pull requests" açık (katkıcılar listesi PR'ı için)
 - [ ] Settings > Environments > `production` ortamına onaylayıcı olarak kendini ekle, `EXPO_TOKEN` secret'ını bu ortama tanımla
 - [ ] Settings > Variables: `STORE_RELEASE` = `true` (EAS hazır olduğunda)
 - [ ] Organizasyon düzeyindeki secret'ların bu repoya açık olmadığını kontrol et (Organization settings > Secrets > her secret için "Repository access")

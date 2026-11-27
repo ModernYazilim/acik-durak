@@ -31,7 +31,7 @@ jobs:
           path-to-signatures: signatures/cla.json
           path-to-document: https://github.com/${{ github.repository }}/blob/main/CLA.md
           branch: cla-imzalar
-          allowlist: dependabot[bot],github-actions[bot],allcontributors[bot],codebycinar,huseyincinar
+          allowlist: dependabot[bot],github-actions[bot],allcontributors[bot],codebycinar
           custom-pr-sign-comment: Katkı Lisans Sözleşmesini okudum ve kabul ediyorum.
           custom-notsigned-prcomment: |
             Katkın için teşekkürler! Birleştirmeden önce [Katkı Lisans Sözleşmesi](https://github.com/${{ github.repository }}/blob/main/CLA.md)'ni kabul etmen gerekiyor. Telif hakkı sende kalıyor, sözleşme uygulamanın mağazalarda yayınlanabilmesi için gerekli.

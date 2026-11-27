@@ -8,7 +8,7 @@ Kod herkese açık ama `main` dalına sadece bakımcılar kod alabilir. Dışar�
 
 1. Kişi repoyu kendi hesabına kopyalar (fork), değişikliğini orada yapar.
 2. Bize bir pull request (PR) gönderir: "şu değişikliği sizin projenize almak istiyorum".
-3. Otomatik kontroller çalışır, AI incelemesi yorum bırakır, bakımcı inceler.
+3. Otomatik kontroller çalışır, bakımcı inceler.
 4. Bakımcı ya birleştirir (merge), ya düzeltme ister, ya da gerekçesini yazıp kapatır.
 
 Yani kimse bizim onayımız olmadan projeye kod sokamaz. Fork'lar, bizim haberimiz olmadan başkalarının kodu kopyalayıp geliştirmesidir ve tamamen normaldir. GPL gereği onlar da kodlarını açık tutmak zorunda.
@@ -26,11 +26,18 @@ Her şeye hemen yanıt vermek zorunda değilsin. README'de ya da issue'larda "ha
 
 ## PR inceleme listesi
 
+PR'ı kendi bilgisayarında açıp denemek için:
+
+```bash
+gh pr checkout <numara>
+npm ci
+npx expo start
+```
+
 Birleştirmeden önce:
 
 - [ ] CI yeşil (typecheck, lint, paketleme, lisans kontrolü)
 - [ ] CLA kabul edilmiş (`cla` kontrolü yeşil)
-- [ ] AI incelemesinin bulguları okunmuş. AI bir öneri sunar, son karar senin. Yanılabilir, bazen gereksiz şeylere takılır, bazen gerçek bir hatayı kaçırır.
 - [ ] Değişiklik projenin amacına uygun ve kapsamı makul. Tek PR'da birden fazla konu varsa bölünmesini iste.
 - [ ] Değişiklik telefonda ya da emülatörde denendi (arayüz değiştiyse ekran görüntüsü var)
 - [ ] Yeni bağımlılık varsa gerçekten gerekli
@@ -68,7 +75,6 @@ Kötü kod değil, yanlış yöne giden emek kırıcıdır. Büyük değişiklik
 | `hata`, `öneri`, `veri kaynağı` | Issue türü |
 | `arayüz`, `kullanıcı verisi`, `belge`, `bağımlılık` | PR'ın dokunduğu alan (otomatik) |
 | `hassas` | Build, yayın ya da marka dosyalarına dokunuyor, satır satır incele (otomatik) |
-| `ai: birleştirilebilir`, `ai: değişiklik gerekli`, `ai: kapsam dışı` | AI incelemesinin önerisi |
 | `tasarım` | Görsel ya da tasarım katkısı, katkıcılar listesinde 🎨 olarak görünür |
 
 ## Sürümler ve yayın
@@ -122,7 +128,6 @@ Aşağıdakilerin bir kısmı repo oluşturulurken yapıldı, işaretli olmayanl
 - [x] Actions: ilk kez katkı verenlerin workflow'ları onay bekler, varsayılan token izni sadece okuma
 - [x] Private vulnerability reporting, Dependabot uyarıları, secret scanning açık
 - [ ] Organizasyon ayarı: Organization settings > Actions > General > Workflow permissions altında "Allow GitHub Actions to create and approve pull requests" kutusunu işaretle. Sonra aynı kutuyu repo ayarlarında (Settings > Actions > General) da işaretle. Katkıcılar listesi PR'ı bunun için gerekli. Bu ayar organizasyondaki diğer repoların workflow'larını değiştirmez, sadece izin verir.
-- [ ] `ANTHROPIC_API_KEY` secret'ını ekle (Settings > Secrets and variables > Actions). AI incelemesi için. Anahtar yoksa AI inceleme işi hata verir, diğer kontroller etkilenmez.
 - [ ] Settings > Environments > `production` ortamına onaylayıcı olarak kendini ekle, `EXPO_TOKEN` secret'ını bu ortama tanımla
 - [ ] Settings > Variables: `STORE_RELEASE` = `true` (EAS hazır olduğunda)
 - [ ] Organizasyon düzeyindeki secret'ların bu repoya açık olmadığını kontrol et (Organization settings > Secrets > her secret için "Repository access")

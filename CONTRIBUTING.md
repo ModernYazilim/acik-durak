@@ -32,7 +32,7 @@ Telefonda Expo Go ile QR kodu okutman yeterli. Android emülatörde `npx expo st
 3. Pull request aç. Şablondaki soruları doldur, ekran değiştiyse ekran görüntüsü ekle.
 4. İlk katkında CLA botu senden [Katkı Lisans Sözleşmesi](CLA.md)'ni kabul etmeni ister. PR'a şu cümleyi yorum olarak yazman yeterli: `Katkı Lisans Sözleşmesini okudum ve kabul ediyorum.`
 5. Otomatik kontroller çalışır: typecheck, lint, Expo uyumluluk kontrolü, Android paketleme ve bağımlılık lisans kontrolü.
-6. Bir bakımcı PR'ı inceler. Gerekirse AI destekli kod incelemesini de başlatır, bulguları PR'a yorum olarak düşer. Son kararı her zaman bir bakımcı verir.
+6. Bir bakımcı PR'ı inceler, gerekirse değişiklik ister ya da sorularını PR'a yorum olarak yazar.
 7. Onaylanan PR `main`'e birleştirilir ve adın katkıcılar listesine eklenir.
 
 ## Kod kuralları

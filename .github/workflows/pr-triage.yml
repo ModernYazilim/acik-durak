@@ -33,7 +33,7 @@ jobs:
           Süreç şöyle işliyor:
           1. CLA botu senden katkı sözleşmesini kabul etmeni isteyecek, tek bir yorumla bitiyor.
           2. Otomatik kontroller (typecheck, lint, paketleme) çalışacak. İlk katkılarda bunları bir bakımcının başlatması gerekebiliyor.
-          3. Bir bakımcı PR'ı inceleyecek, gerekirse AI destekli incelemeyi de başlatacak.
+          3. Bir bakımcı PR'ı inceleyip geri dönüş yapacak.
           4. PR birleştirilince adın README'deki katkıcılar listesine otomatik eklenecek.
 
           Ayrıntılar [CONTRIBUTING.md](https://github.com/$GITHUB_REPOSITORY/blob/main/CONTRIBUTING.md) dosyasında."

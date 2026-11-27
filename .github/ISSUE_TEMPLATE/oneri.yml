@@ -1,0 +1,21 @@
+name: Özellik önerisi
+description: Uygulamaya eklenmesini istediğin bir şey
+labels: [öneri]
+body:
+  - type: textarea
+    id: ihtiyac
+    attributes:
+      label: Hangi ihtiyaç için?
+      description: Günlük kullanımda hangi durumda işine yarar?
+    validations:
+      required: true
+  - type: textarea
+    id: oneri
+    attributes:
+      label: Nasıl çalışsın?
+  - type: checkboxes
+    id: katki
+    attributes:
+      label: Katkı
+      options:
+        - label: Bunu kendim geliştirmek istiyorum

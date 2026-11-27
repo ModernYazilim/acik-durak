@@ -1,0 +1,30 @@
+name: Hata bildirimi
+description: Uygulamada bir şey çalışmıyor ya da yanlış gösteriyor
+labels: [hata]
+body:
+  - type: textarea
+    id: ne
+    attributes:
+      label: Ne oldu?
+      description: Gördüğün hatayı ve beklediğin davranışı yaz.
+    validations:
+      required: true
+  - type: textarea
+    id: adimlar
+    attributes:
+      label: Nasıl tekrarlanır?
+      placeholder: |
+        1. Otobüs sekmesinde 131202 durağını aç
+        2. Araç detaylarına dokun
+        3. ...
+    validations:
+      required: true
+  - type: input
+    id: cihaz
+    attributes:
+      label: Cihaz ve sürüm
+      placeholder: Android 15, Pixel 8 / iOS 26, iPhone 15
+  - type: textarea
+    id: ekran
+    attributes:
+      label: Ekran görüntüsü

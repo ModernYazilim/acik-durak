@@ -1,0 +1,24 @@
+veri kaynağı:
+  - changed-files:
+      - any-glob-to-any-file: ['src/api/**', 'src/lib/http.ts', 'src/lib/html.ts']
+
+arayüz:
+  - changed-files:
+      - any-glob-to-any-file: ['src/app/**', 'src/components/**', 'src/constants/**']
+
+kullanıcı verisi:
+  - changed-files:
+      - any-glob-to-any-file: ['src/lib/store.ts', 'src/lib/reminders.ts']
+
+belge:
+  - changed-files:
+      - any-glob-to-any-file: ['**/*.md']
+
+bağımlılık:
+  - changed-files:
+      - any-glob-to-any-file: ['package.json', 'package-lock.json']
+
+# Bu dosyalar build ve yayın sürecini etkiler, bakımcılar dikkatle incelemeli.
+hassas:
+  - changed-files:
+      - any-glob-to-any-file: ['.github/**', 'eas.json', 'app.json', 'package.json', 'assets/**']

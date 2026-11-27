@@ -41,3 +41,14 @@ example
 # generated native folders
 /ios
 /android
+
+# gizli bilgiler (mağaza anahtarları EAS'ta tutulur, repoya girmez)
+.env
+.env.*
+*.keystore
+google-service-account*.json
+*.p8
+.claude/settings.local.json
+
+# yerel editör ve araç ayarları
+.claude/

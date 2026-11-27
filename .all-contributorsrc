@@ -1,0 +1,26 @@
+{
+  "projectName": "acik-durak",
+  "projectOwner": "ModernYazilim",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 80,
+  "commit": false,
+  "commitConvention": "none",
+  "contributorsPerLine": 7,
+  "linkToUsage": false,
+  "contributors": [
+    {
+      "login": "codebycinar",
+      "name": "Hüseyin Çınar",
+      "avatar_url": "https://avatars.githubusercontent.com/u/53220399?v=4",
+      "profile": "https://github.com/codebycinar",
+      "contributions": [
+        "code",
+        "maintenance"
+      ]
+    }
+  ]
+}

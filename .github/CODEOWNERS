@@ -1,0 +1,11 @@
+# Her PR'ı en az bir bakımcı onaylar. Bakımcı ekibi büyüdükçe kişi yerine organizasyon ekibi yazılabilir.
+*                @codebycinar
+
+# Build, yayın ve marka dosyaları
+/.github/        @codebycinar
+/eas.json        @codebycinar
+/app.json        @codebycinar
+/assets/         @codebycinar
+/LICENSE         @codebycinar
+/CLA.md          @codebycinar
+/TRADEMARKS.md   @codebycinar

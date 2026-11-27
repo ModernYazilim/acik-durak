@@ -78,7 +78,7 @@ Katkılara açığız. Nasıl başlayacağın [CONTRIBUTING.md](CONTRIBUTING.md)
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/codebycinar"><img src="https://avatars.githubusercontent.com/u/53220399?v=4?s=80" width="80px;" alt="Hüseyin Çınar"/><br /><sub><b>Hüseyin Çınar</b></sub></a><br /><a href="https://github.com/ModernYazilim/acik-durak/commits?author=codebycinar" title="Code">💻</a> <a href="#maintenance-codebycinar" title="Maintenance">🚧</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/codebycinar"><img src="https://avatars.githubusercontent.com/u/53220399?v=4&size=80" width="80px" height="80px" alt="Hüseyin Çınar"/><br /><sub><b>Hüseyin Çınar</b></sub></a><br /><a href="https://github.com/ModernYazilim/acik-durak/commits?author=codebycinar" title="Code">💻</a> <a href="#maintenance-codebycinar" title="Maintenance">🚧</a> <a href="https://github.com/ModernYazilim/acik-durak/commits?author=codebycinar" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>

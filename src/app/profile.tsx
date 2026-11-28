@@ -6,6 +6,7 @@ import { Alert, Pressable, ScrollView, Share, StyleSheet, TextInput, View } from
 import { PlaceButton } from '@/components/place-button';
 import { Avatar, Brand, ChoiceRow, Row, SectionTitle, Separator, T, ToggleRow } from '@/components/ui';
 import { useTheme } from '@/hooks/use-theme';
+import { openStorePage } from '@/lib/rating';
 import { actions, exportBackup, PROFILE_COLORS, useStore } from '@/lib/store';
 
 export default function ProfileScreen() {
@@ -152,6 +153,9 @@ export default function ProfileScreen() {
       <Row onPress={backup} title={<T color={c.link}>Yedeği kopyala / paylaş</T>} />
       <Separator />
       <Row onPress={() => router.push('/restore')} title={<T color={c.link}>Yedekten geri yükle</T>} />
+
+      <SectionTitle>Açık Durak</SectionTitle>
+      <Row onPress={openStorePage} title={<T color={c.link}>Uygulamayı puanla</T>} subtitle="Beğendiysen mağazada puan vermen daha çok kişiye ulaşmamıza yardım eder" />
 
       <SectionTitle>Hesap</SectionTitle>
       <Row onPress={reset} title={<T color={Brand.red}>Tüm verileri sil ve çıkış yap</T>} />

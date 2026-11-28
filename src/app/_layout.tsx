@@ -8,6 +8,7 @@ import { Brand } from '@/components/ui';
 import { Colors } from '@/constants/theme';
 import '@/lib/reminders';
 import { openItem } from '@/lib/nav';
+import { trackOpenAndMaybeAsk } from '@/lib/rating';
 import { actions, FavKey, useStore } from '@/lib/store';
 
 SplashScreen.preventAutoHideAsync();
@@ -27,7 +28,9 @@ export default function RootLayout() {
   const { ready } = useStore();
 
   useEffect(() => {
-    if (ready) SplashScreen.hideAsync();
+    if (!ready) return;
+    SplashScreen.hideAsync();
+    trackOpenAndMaybeAsk();
   }, [ready]);
 
   // Hatırlatıcı bildirimine dokununca ilgili sayfayı aç

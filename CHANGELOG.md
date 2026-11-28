@@ -14,3 +14,4 @@ Bu dosyada her sürümdeki önemli değişiklikler yer alır.
 - Tema, yenileme sıklığı ve erişilebilirlik ayarları
 - Otobüs, tramvay ve vapuru bir arada gösteren yeni uygulama simgesi
 - Simgeyle uyumlu, koyu modda lacivert zeminli ve göz yormayan renk paleti
+- Birkaç gün kullanımdan sonra mağaza puanlama penceresi, profilde "Uygulamayı puanla" bağlantısı

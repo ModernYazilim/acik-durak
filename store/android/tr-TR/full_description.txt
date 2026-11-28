@@ -1,10 +1,12 @@
-Açık Durak, İstanbul'da toplu taşıma kullananlar için hazırlanmış ücretsiz ve reklamsız bir ulaşım uygulaması. Otobüsün durağa kaç dakikada geleceğini, metronun sıradaki seferini, vapur saatlerini ve yakınındaki durakları tek yerden görürsün.
+Açık Durak, İstanbul'da toplu taşıma kullananlar için hazırlanmış ücretsiz ve reklamsız bir ulaşım uygulaması. Otobüsün nerede olduğunu ve durağa kaç dakikada geleceğini, metrobüs ve otobüs hat saatlerini, metronun sıradaki seferini, vapur saatlerini ve yakınındaki durakları tek yerden görürsün.
+
+Durakta beklerken "otobüs nerede, ne zaman gelir?" sorusunun cevabı birkaç saniyede elinde. Sık kullandığın durakları ve hatları favorilere ekle, ana sayfada canlı varış sürelerini gör.
 
 OTOBÜS (İETT)
 • Durak ve hat arama: durak adı, durak kodu ya da hat numarasıyla ara
 • Duraktaki yaklaşan otobüsler ve kaç dakika kaldığı, otomatik yenilenir
 • Canlı araç konumları: hattaki otobüsleri haritada gör
-• Hat güzergahı, iki yönün durakları, sefer saatleri (iş günü, cumartesi, pazar)
+• Hat güzergahı, iki yönün durakları, otobüs ve metrobüs sefer saatleri (iş günü, cumartesi, pazar)
 • Duraktan geçen hatlar ve durak duyuruları
 • Araç özellikleri: klima, wifi, USB, bisiklet aparatı, engelli erişimi
 
